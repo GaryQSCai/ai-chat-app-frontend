@@ -1,0 +1,1173 @@
+/* frontend/src/components/ChatInterface.css */
+
+/* --- General container and layout --- */
+.chat-interface-container {
+    display: flex;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+    overflow-x: auto; /* Allow horizontal scroll if window is too narrow */
+    min-width: min-content; /* Allow container to fit content */
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* --- Sidebar Styles --- */
+.chat-sidebar {
+    width: 260px;
+    flex-shrink: 0; /* Prevent shrinking */
+    background-color: var(--color-sidebar-background);
+    border-right: 1px solid var(--color-border-light);
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 60px; /* Add space for theme toggle */
+    color: var(--color-sidebar-text);
+}
+
+.sidebar-header {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.new-chat-button {
+    width: 100%;
+    padding: 8px 16px;
+    background-color: var(--color-primary-blue);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.new-chat-button:hover {
+    background-color: var(--color-primary-blue-darker);
+}
+
+
+/* frontend/src/components/ChatInterface.css */
+
+/* ... (rest of your CSS) ... */
+
+.session-history {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 24px;
+    padding-right: 0px; /* REMOVE padding-right: 8px; - Adjust to 0 for cleaner look */
+    position: relative;
+    overflow: visible;
+}
+
+.session-history-header {
+    color: var(--color-sidebar-title);
+    font-size: 13px;
+    font-weight: 600;  /* Made bolder */
+    padding: 8px 16px;
+    margin: 8px 0;
+    text-transform: uppercase;
+}
+
+.session-history ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.session-history li {
+    text-align: left;
+    padding: 8px 16px; /* Adjust vertical padding, keep horizontal padding */
+    cursor: pointer;
+    font-size: 0.9rem; /* Keep session title font size */
+    color: #444444; /* Darker session title color */
+    transition: background-color 0.15s ease;
+    border-radius: 0px; /* Remove border-radius for list items - rectangular style */
+    margin-bottom: 0; /* Remove margin-bottom between list items - tighter spacing */
+    padding-left: 18px; /* Add left padding to indent titles slightly */
+    padding-top: 7px; /* Adjust top padding to align text vertically */
+    padding-bottom: 7px; /* Adjust bottom padding to align text vertically */
+    position: relative;
+    
+}
+
+.session-history li:hover {
+    background-color: #f0f0f0; /* Slightly lighter grey on hover */
+}
+
+.session-history li.active-session {
+    background-color: #e0e0e0; /* Light grey for active session */
+    font-weight: 500;
+    color: #202124;
+}
+
+/* ... (rest of your CSS) ... */
+
+/* --- Main Chat Area Styles --- */
+.main-chat-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-chat-background);
+    color: var(--color-text);
+    width: 100%;
+    max-width: 800px;  /* Match chat-content max-width */
+    margin: 0 auto;    /* Center the content */
+}
+
+.main-chat-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex;
+    justify-content: center;
+}
+
+.service-selection-main-area {
+    margin-right: 16px;
+}
+
+.main-area-service-select {
+    padding: 9px 16px;
+    border-radius: 50px; /* Rounded dropdown */
+    border: 1px solid var(--color-border-light);
+    font-size: 0.95rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: var(--color-input-background);
+    color: var(--color-text);
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 12px); /* Adjusted arrow position */
+    background-position-y: 12px;
+    padding-right: 32px;
+    width: auto;
+    min-width: 120px;
+    max-width: 220px;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease; /* Transition for focus state */
+}
+
+.main-area-service-select:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: var(--color-primary-blue); /* Blue border on focus */
+    box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 7px 14px 4px rgba(60,64,67,.15); /* Stronger shadow on focus */
+}
+
+
+.main-area-service-select::-ms-expand {
+    display: none;
+}
+
+
+.message-display-area {
+    flex-grow: 1;
+    padding: 20px 24px;
+    overflow-y: auto;
+    padding-bottom: 16px;
+}
+
+.message {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    clear: both;
+    max-width: 80%;
+    display: block;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    text-align: left;
+    color: var(--color-text);
+    border: none;
+    margin: 10px;
+}
+
+.message.user {
+    background-color: var(--color-background-user-message);
+    float: right;
+    margin-left: auto;
+    max-width: 80%;
+    color: var(--color-text);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+}
+
+/* Standardize AI message styling */
+.message.gemini, .message.openai, .message.kimi, .message.doubao {
+    background-color: #f1f3f4 !important;  /* Force this background color */
+    float: left;
+    color: var(--color-text);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    position: relative;
+    margin-left: 36px;
+}
+
+/* Dark mode styling for all AI messages */
+[data-theme='dark'] .message.gemini, 
+[data-theme='dark'] .message.openai, 
+[data-theme='dark'] .message.kimi, 
+[data-theme='dark'] .message.doubao {
+    background-color: var(--color-background-message-area) !important;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Remove any individual message styling that might override these */
+.message.doubao {
+    /* Remove individual styling */
+}
+
+.message.gemini {
+    /* Remove individual styling */
+}
+
+/* Update icon styles to include Doubao */
+.message.gemini::before, .message.openai::before, .message.kimi::before, .message.doubao::before {
+    content: '';
+    position: absolute;
+    left: -36px; /* Position icon outside the message box */
+    top: 2px;    /* Align with top of message */
+    width: 28px;
+    height: 28px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Gemini-specific icon - using the star/sparkle icon */
+.message.gemini::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 1.5L9.5 9.5L1.5 12L9.5 14.5L12 22.5L14.5 14.5L22.5 12L14.5 9.5L12 1.5Z' fill='%234285f4' stroke='%234285f4' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* OpenAI-specific icon */
+.message.openai::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5 12a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z' stroke='%2310a37f' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .message.gemini::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 1.5L9.5 9.5L1.5 12L9.5 14.5L12 22.5L14.5 14.5L22.5 12L14.5 9.5L12 1.5Z' fill='%238ab4f8' stroke='%238ab4f8' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+[data-theme='dark'] .message.openai::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5 12a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z' stroke='%2340b89b' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+/* Add Kimi-specific icon using the same oval face design */
+.message.kimi::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='12' cy='12' rx='10' ry='8' fill='%234169e1'/%3E%3Cellipse cx='8' cy='12' rx='2' ry='2.5' fill='white'/%3E%3Cellipse cx='16' cy='12' rx='2' ry='2.5' fill='white'/%3E%3C/svg%3E");
+}
+
+/* Add dark mode version for Kimi */
+[data-theme='dark'] .message.kimi::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='12' cy='12' rx='10' ry='8' fill='%236495ed'/%3E%3Cellipse cx='8' cy='12' rx='2' ry='2.5' fill='white'/%3E%3Cellipse cx='16' cy='12' rx='2' ry='2.5' fill='white'/%3E%3C/svg%3E");
+}
+
+/* Add Kimi message styling */
+.message.kimi {
+    background-color: #f1f3f4;
+    float: left;
+    color: var(--color-text);
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    position: relative;
+    margin-left: 36px;
+}
+
+/* Dark mode for Kimi messages */
+[data-theme='dark'] .message.kimi {
+    background-color: var(--color-background-message-area);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.message-content {
+    line-height: 1.5;
+    text-align: left; /* Ensure left alignment */
+}
+
+
+.input-area {
+    padding: 16px;
+    padding-bottom: 24px;
+    display: flex;
+    gap: 8px; /* Reduced gap to save space */
+    border-top: 1px solid var(--color-border-light);
+    background-color: var(--color-chat-background);
+}
+
+.chat-input {
+    flex-grow: 1;
+    padding: 12px 16px;
+    border-radius: 24px;
+    border: none;
+    resize: none;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    overflow: hidden;
+    height: auto;
+    min-height: 44px;
+    max-height: 150px;
+    box-shadow: inset 0 1px 2px rgba(60,64,67,.1), inset 0 1px 3px rgba(60,64,67,.1);
+    background-color: var(--color-background-message-area);
+    color: var(--color-text);
+}
+
+.chat-input::placeholder {
+    color: #5f6368;
+}
+
+
+
+.send-button {
+    padding: 8px 16px;
+    background-color: var(--color-primary-blue);
+    color: white;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 4px 8px 3px rgba(60,64,67,.15);
+    width: 72px; /* Reduced width to fit better */
+    min-width: 72px;
+    height: 44px; /* Match input height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.send-button:hover {
+    background-color: var(--color-primary-blue-darker);
+    box-shadow: 0 1px 3px rgba(60,64,67,.3), 0 7px 14px 4px rgba(60,64,67,.15);
+}
+
+/* frontend/src/components/ChatInterface.css */
+
+/* ... existing CSS rules ... */
+
+/* --- Styles for Markdown rendered by ReactMarkdown --- */
+.message-content p {
+    margin: 0 0 0.75em 0; /* Add bottom margin to paragraphs, remove others */
+    text-align: left;
+}
+
+.message-content p:last-child {
+    margin-bottom: 0; /* Remove margin from last paragraph */
+}
+
+.message-content ul, 
+.message-content ol {
+    margin: 0.5em 0 0.75em 1.5em; /* Add left margin for lists */
+    padding-left: 0.5em;
+}
+
+.message-content code {
+    font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    background-color: var(--color-background-code);
+    border-radius: 3px;
+    white-space: pre-wrap;
+}
+
+.message-content pre {
+    margin: 0.5em 0;
+    padding: 0;
+    background: none;
+}
+
+.message-content pre code {
+    display: block;
+    padding: 1em;
+    overflow-x: auto;
+    background-color: var(--color-background-code-block);
+    border-radius: 6px;
+    line-height: 1.45;
+}
+
+/* Dark mode adjustments for code blocks */
+[data-theme='dark'] .message-content code {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .message-content pre code {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Ensure links are properly styled */
+.message-content a {
+    color: var(--color-primary-blue);
+    text-decoration: none;
+}
+
+.message-content a:hover {
+    text-decoration: underline;
+}
+
+/* Table styles for markdown */
+.message-content table {
+    border-collapse: collapse;
+    margin: 0.5em 0;
+    width: 100%;
+}
+
+.message-content th,
+.message-content td {
+    border: 1px solid var(--color-border-light);
+    padding: 0.5em;
+    text-align: left;
+}
+
+.message-content th {
+    background-color: var(--color-background-code);
+}
+
+/* frontend/src/components/ChatInterface.css */
+
+/* ... (rest of your CSS) ... */
+
+.session-history-more-button {
+    padding: 6px 12px;
+    background-color: #f0f0f0; /* Light grey background for "More" button */
+    color: #555555; /* Grey text color for "More" button */
+    border: none;
+    border-radius: 20px; /* Rounded button */
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-top: 10px; /* Add some space above the button */
+    align-self: flex-start; /* Align button to the start (left) of sidebar */
+    margin-left: 18px; /* Match left indentation of session titles */
+    
+}
+
+.session-history-more-button:hover {
+    background-color: #e0e0e0; /* Slightly darker grey on hover */
+}
+
+.session-history-less-button { /* --- NEW CSS for "Less" button --- */
+    padding: 6px 12px;
+    background-color: #f0f0f0; /* Light grey background, same as "More" */
+    color: #555555;     /* Grey text color, same as "More" */
+    border: none;
+    border-radius: 20px; /* Rounded button, same as "More" */
+    cursor: pointer;
+    font-size: 0.85rem; /* Same font size as "More" */
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    margin-top: 5px;    /* Slightly less margin-top than "More", adjust as needed */
+    align-self: flex-start;
+    margin-left: 18px; /* Match left indentation of session titles */
+}
+
+.session-history-less-button:hover {
+    background-color: #e0e0e0; /* Hover effect, same as "More" */
+}
+
+.arrow-icon { /* --- NEW CSS for arrow icons (for both "More" and "Less") --- */
+    display: inline-block; /* Ensure it's inline with text */
+    margin-left: 5px;  /* Add some space between text and arrow */
+    font-size: 0.8em;  /* Adjust arrow icon size if needed */
+    vertical-align: middle; /* Vertically align arrow with text */
+}
+
+/* --- 3-DOT CONTEXT MENU ICON --- */
+.session-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    padding-right: 32px;  /* Reduced to bring dots closer to edge */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--color-session-title);  /* Use the new variable */
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 1 !important;
+    width: 100%;  /* Ensure full width */
+    box-sizing: border-box;  /* Include padding in width */
+}
+
+.session-list-item:hover {
+    background-color: var(--color-hover-item);
+}
+
+/* Ensure text remains visible on hover in dark mode */
+[data-theme='dark'] .session-list-item:hover {
+    color: rgba(255, 255, 255, 0.95);  /* Brighter text on hover */
+}
+
+.session-history-header {
+    color: var(--color-sidebar-title);
+    font-size: 13px;
+    font-weight: 600;  /* Made bolder */
+    padding: 8px 16px;
+    margin: 8px 0;
+    text-transform: uppercase;
+}
+
+/* More button style */
+.session-history-more-button,
+.session-history-less-button {
+    background-color: var(--color-more-button-bg);
+    border: none;
+    color: var(--color-more-button-text);
+    padding: 8px 16px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.session-history-more-button:hover,
+.session-history-less-button:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Snowflake icon */
+.session-list-item span:first-child {
+    color: var(--color-session-icon);  /* Use the new variable */
+    margin-right: 12px;
+}
+
+/* Context menu icon */
+.session-item-context-menu-icon {
+    position: absolute;
+    right: 8px;  /* Reduced to move closer to edge */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    padding: 4px;  /* Reduced padding */
+    color: var(--color-context-menu-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;  /* Fixed width */
+    height: 20px;  /* Fixed height */
+    background: none;  /* Remove any background */
+    border: none;      /* Remove border */
+    outline: none;     /* Remove outline */
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.session-list-item:hover .session-item-context-menu-icon {
+    opacity: 1;
+}
+
+/* Context menu */
+.session-item-context-menu {
+    position: absolute;
+    right: 16px;
+    top: 0;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+    overflow: visible;
+}
+
+.session-context-menu-button {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    color: var(--color-context-menu-text);
+    width: 100%;
+    display: block;
+}
+
+.session-context-menu-button:hover {
+    background-color: var(--color-hover-item);
+}
+
+.session-context-delete-button {
+    border-top: 1px solid var(--color-border-light);
+}
+
+/* Session history container */
+.session-history {
+    position: relative;
+    overflow: visible !important;
+}
+
+.session-list {
+    position: relative;
+    overflow: visible !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Rename input */
+.session-rename-input {
+    width: calc(100% - 40px);
+    padding: 4px 8px;
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: var(--color-input-background);
+    color: var(--color-text);
+}
+
+/* ... (rest of your CSS) ... */
+/* ... rest of your CSS ... */
+
+/* Typing indicator animation */
+.typing-indicator {
+    display: inline-block;
+    margin-left: 4px;
+    animation: blink 1s infinite;
+    color: #666;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Message content styles */
+.message-content {
+    position: relative;
+    word-wrap: break-word;
+    transition: all 0.1s ease-out;
+}
+
+/* Style for streaming message */
+.message.streaming {
+    background-color: var(--color-background-message-area);
+    border-color: var(--color-primary-blue);
+}
+
+/* Add theme-specific styles */
+.chat-interface-container {
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+.chat-sidebar {
+    background-color: var(--color-sidebar-background);
+    border-right: 1px solid var(--color-border-light);
+    color: var(--color-sidebar-text);
+}
+
+.main-chat-area {
+    background-color: var(--color-chat-background);
+    color: var(--color-text);
+}
+
+.message {
+    margin-bottom: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    clear: both;
+    max-width: 80%;
+    display: block;
+    word-wrap: break-word;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    text-align: left;
+    color: var(--color-text);
+    border: none;
+    margin: 10px;
+}
+
+.message.user {
+    background-color: var(--color-background-user-message);
+    margin-left: auto;
+    max-width: 80%;
+    color: var(--color-text);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 28px;
+    border-bottom-left-radius: 28px;
+}
+
+.message.gemini {
+    background-color: var(--color-background-message-area);
+    margin-right: auto;
+    max-width: 80%;
+}
+
+.session-list-item {
+    color: var(--color-session-title);  /* Use the new variable */
+    opacity: 0.9;  /* Slightly reduce opacity for non-active items */
+}
+
+.session-list-item:hover {
+    background-color: var(--color-hover-item);
+    opacity: 1;    /* Full opacity on hover */
+}
+
+.session-list-item.active {
+    opacity: 1;    /* Full opacity for active session */
+}
+
+.input-area {
+    background-color: var(--color-chat-background);
+    border-top: 1px solid var(--color-border-light);
+    padding: 16px;
+}
+
+.chat-input {
+    background-color: var(--color-background-message-area);
+    color: var(--color-text);
+    border: none;
+    border-radius: 8px;
+}
+
+.chat-input:focus {
+    border-color: var(--color-primary-blue);
+}
+
+.send-button {
+    background-color: var(--color-primary-blue);
+    color: white;
+}
+
+.send-button:hover {
+    background-color: var(--color-primary-blue-darker);
+}
+
+.session-item-context-menu {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border-light);
+}
+
+.session-context-menu-button {
+    color: var(--color-context-menu-text);  /* Use the new variable */
+}
+
+.session-context-menu-button:hover {
+    background-color: var(--color-hover-item);
+}
+
+.session-rename-input {
+    background-color: var(--color-input-background);
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+}
+
+.main-chat-header {
+    background-color: var(--color-chat-background);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.service-select {
+    background-color: var(--color-service-provider-bg);
+    color: var(--color-service-provider-text);
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 30px;
+}
+
+.service-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* Custom dropdown arrow */
+.service-select-container {
+    position: relative;
+}
+
+.service-select-container::after {
+    content: "▼";
+    font-size: 0.7em;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-service-provider-text);
+    opacity: 0.8;
+}
+
+.session-history-header {
+    color: var(--color-sidebar-title);
+    font-size: 13px;
+    font-weight: 600;  /* Made bolder */
+    letter-spacing: 0.05em;
+    padding: 8px 16px;
+    margin: 8px 0;
+    text-transform: uppercase;
+}
+
+/* Debug and fix session list styles */
+.session-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.session-list-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 16px;
+    padding-right: 32px;  /* Reduced to bring dots closer to edge */
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    overflow: visible;
+    color: var(--color-session-title);  /* Use the new variable */
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 1 !important;
+    width: 100%;  /* Ensure full width */
+    box-sizing: border-box;  /* Include padding in width */
+}
+
+/* Snowflake icon specific style */
+.session-list-item span:first-child {
+    color: var(--color-session-icon);  /* Use the new variable */
+    margin-right: 12px;
+    opacity: 1;
+}
+
+/* Session title specific style */
+.session-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.session-list-item:hover {
+    background-color: var(--color-hover-item);
+}
+
+/* Debug styles for the container */
+.session-history {
+    color: inherit;
+    opacity: 1;
+}
+
+/* Make sure no other styles are affecting the text */
+.chat-sidebar * {
+    text-shadow: none;
+    -webkit-text-fill-color: inherit;
+}
+
+/* Make the 3-dots menu more visible in dark mode */
+[data-theme='dark'] .session-item-context-menu-icon {
+    opacity: 0.6;  /* More visible in dark mode by default */
+    color: #ffffff;  /* Ensure dots are white */
+}
+
+[data-theme='dark'] .session-list-item:hover .session-item-context-menu-icon {
+    opacity: 1;  /* Full visibility on parent hover in dark mode */
+}
+
+/* Adjust session list item hover background for dark mode */
+[data-theme='dark'] .session-list-item:hover {
+    background-color: rgba(55, 55, 70, 0.7);  /* Darker blue-grey tint that contrasts better with white text */
+}
+
+/* Light mode hover effects */
+.session-item-context-menu-icon:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Dark mode hover effects */
+[data-theme='dark'] .session-item-context-menu-icon:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Active/click state for both modes */
+.session-item-context-menu-icon:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.chat-content {
+    flex: 1;
+    max-width: 800px;  /* Fixed maximum width */
+    min-width: 600px;  /* Minimum width */
+    width: 100%;
+    margin: 0 auto;    /* Center the chat area */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--color-chat-background);
+}
+
+.service-selection {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    background-color: var(--color-chat-background);
+}
+
+.service-select {
+    padding: 9px 16px;
+    border-radius: 50px;
+    border: 1px solid var(--color-border-light);
+    font-size: 0.95rem;
+    background-color: var(--color-input-background);
+    color: var(--color-text);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23666666" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 12px);
+    background-position-y: 12px;
+    padding-right: 32px;
+    min-width: 120px;
+    max-width: 220px;
+    font-weight: 400;
+    box-shadow: 0 1px 2px rgba(60,64,67,.3), 0 1px 3px rgba(60,64,67,.15);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Add this new style for dark mode */
+[data-theme='dark'] .main-area-service-select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+/* Also add for the service-select class */
+[data-theme='dark'] .service-select {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+}
+
+/* Add specific dark mode override if needed */
+[data-theme='dark'] .message.user {
+    color: rgba(255, 255, 255, 0.95); /* Light text color for dark mode */
+}
+
+/* Add media query for responsive layout */
+@media screen and (max-width: 1000px) {
+    .chat-sidebar {
+        position: absolute;
+        left: -260px; /* Hide sidebar by default on narrow screens */
+        height: 100%;
+        background-color: var(--color-sidebar-background);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .chat-sidebar.show {
+        left: 0; /* Show sidebar when .show class is added */
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Add a toggle button that only appears on narrow screens */
+    .sidebar-toggle {
+        display: block;
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        z-index: 1001;
+        padding: 8px;
+        border-radius: 50%;
+        background-color: var(--color-background);
+        border: 1px solid var(--color-border-light);
+        cursor: pointer;
+        box-shadow: 0 1px 3px rgba(60,64,67,.3);
+    }
+
+    /* Center the chat content */
+    .chat-content {
+        margin: 0 auto;
+    }
+}
+
+/* Hide toggle button on wider screens */
+.sidebar-toggle {
+    display: none;
+}
+
+/* Add smooth transition for text updates */
+.message-content {
+    position: relative;
+    word-wrap: break-word;
+    transition: all 0.1s ease-out;
+}
+
+/* Ensure new characters fade in smoothly */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.message-content > *:last-child {
+    animation: fadeIn 0.1s ease-out;
+}
+
+.session-title svg {
+    vertical-align: middle;
+    margin-right: 8px;
+    /* Use the same colors as the message icons */
+    color: #4285f4; /* Gemini blue */
+}
+
+.session-title svg path {
+    /* Ensure proper coloring in dark mode */
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+/* Service-specific colors */
+[data-service="openai"] svg {
+    color: #10a37f; /* OpenAI green */
+}
+
+[data-service="gemini"] svg {
+    color: #4285f4; /* Gemini blue */
+}
+
+[data-service="kimi"] svg {
+    color: #4169e1; /* Royal blue color matching the Kimi logo */
+}
+
+/* Dark mode adjustments */
+[data-theme='dark'] .session-title svg {
+    opacity: 0.9;
+}
+
+[data-theme='dark'] [data-service="openai"] svg {
+    color: #40b89b; /* Lighter OpenAI green for dark mode */
+}
+
+[data-theme='dark'] [data-service="gemini"] svg {
+    color: #8ab4f8; /* Lighter Gemini blue for dark mode */
+}
+
+[data-theme='dark'] [data-service="kimi"] svg {
+    color: #6495ed; /* Lighter blue for dark mode */
+}
+
+/* Optional: Add hover effect */
+.session-title:hover svg {
+    color: var(--primary-color);
+}
+
+/* Add Doubao icon for chat messages */
+.message.doubao::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%2310a37f'/%3E%3Ccircle cx='8' cy='12' r='1' fill='white'/%3E%3Ccircle cx='16' cy='12' r='1' fill='white'/%3E%3C/svg%3E");
+}
+
+[data-theme='dark'] .message.doubao::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%2340b89b'/%3E%3Ccircle cx='8' cy='12' r='1' fill='white'/%3E%3Ccircle cx='16' cy='12' r='1' fill='white'/%3E%3C/svg%3E");
+}
+
+/* Update Doubao service color in sidebar */
+[data-service="doubao"] svg {
+    color: #10a37f; /* OpenAI green */
+}
+
+[data-theme='dark'] [data-service="doubao"] svg {
+    color: #40b89b; /* Lighter green for dark mode */
+}
+
+/* Add these styles */
+.sidebar-footer {
+    padding: 16px;
+    border-top: 1px solid var(--color-border-light);
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.logout-button {
+    padding: 8px 16px;
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-light);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.logout-button:hover {
+    background-color: var(--color-hover-item);
+}
+
+[data-theme='dark'] .logout-button {
+    color: var(--color-text);
+    border-color: var(--color-border-medium);
+}
+
+[data-theme='dark'] .logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.app-title {
+    display: none;
+}
+
+.welcome-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    color: var(--color-text);
+    opacity: 0.9;
+}
+
+.welcome-text .username-text {
+    color: var(--color-primary-blue);
+    margin-left: 0.2em;
+}
+
+[data-theme='dark'] .welcome-text .username-text {
+    color: var(--color-primary-blue);
+}
+
+/* Ensure the message display area takes full height when empty */
+.message-display-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* This is important for proper flexbox behavior */
+}

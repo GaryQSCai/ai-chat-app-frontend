@@ -1,0 +1,116 @@
+/* frontend/src/styles/variables.css */
+
+:root {
+    /* Light theme colors */
+    --color-primary-blue: #007bff;
+    --color-primary-blue-darker: #0056b3;
+    --color-primary-blue-darkest: #004085;
+    
+    /* Light theme backgrounds */
+    --color-sidebar-background: #ffffff;  /* White background */
+    --color-chat-background: #ffffff;
+    --color-background-message-area: #ffffff;
+    --color-background-user-message: #e0f7fa;
+    --color-input-background: #ffffff;
+    --color-hover-item: #f5f5f5;
+    
+    /* Light theme text */
+    --color-text: #212121;
+    --color-sidebar-text: #333333;  /* Dark gray for session titles */
+    --color-sidebar-title: #666666;  /* Medium gray for RECENT */
+    
+    /* Light theme borders and utilities */
+    --color-border-light: #e0e0e0;
+    --color-border-medium: #cccccc;
+    --color-white: #ffffff;
+    --color-background: #ffffff;
+    
+    /* Light theme buttons */
+    --color-more-button-bg: #f0f0f0;
+    --color-more-button-text: #212121;
+    --color-service-provider-bg: #f8f9fa;
+    --color-service-provider-text: #212121;
+
+    /* Font Variables */
+    --font-family-base: 'Roboto', sans-serif; /* Example: Roboto, adjust as needed */
+    --font-size-base: 1rem;
+    --font-weight-medium: 500;
+
+    /* Spacing Variables */
+    --spacing-padding-small: 10px;
+    --spacing-padding-medium: 15px;
+    --spacing-padding-large: 20px;
+    --spacing-margin-small: 8px;
+    --spacing-margin-medium: 10px;
+
+    /* Border Radius Variables */
+    --border-radius-small: 3px;
+    --border-radius-medium: 5px;
+    --border-radius-large: 10px;
+    --border-radius-pill: 25px;
+
+    /* Shadow Variables */
+    --shadow-small: 0 1px 2px rgba(0,0,0,0.15);
+    --shadow-input-inner: inset 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-input-focus: inset 0 1px 5px rgba(0,0,0,0.2), 0 0 5px rgba(0, var(--color-primary-blue-rgb, 123), 255, 0.25); /* Example with RGB fallback */
+
+    /* Arrow color */
+    --color-arrow: #212121; /* Default arrow color for light mode */
+
+    /* New variables for code blocks */
+    --color-background-code: rgba(0, 0, 0, 0.05);
+    --color-background-code-block: rgba(0, 0, 0, 0.07);
+}
+
+/* Dark theme colors */
+[data-theme='dark'] {
+    /* Dark theme primary colors */
+    --color-primary-blue: #4d94ff;
+    --color-primary-blue-darker: #3385ff;
+    --color-primary-blue-darkest: #1a75ff;
+    
+    /* Dark theme backgrounds */
+    --color-sidebar-background: #202020;
+    --color-chat-background: #1e1e1e;
+    --color-background-message-area: #2d2d2d;
+    --color-background-user-message: #1e4d75;
+    --color-input-background: #1e1e1e;
+    --color-hover-item: #404040;  /* Darker background for better contrast on hover */
+    
+    /* Dark theme text - adjusted for better readability */
+    --color-text: #ffffff;                          /* Brighter white for main text */
+    --color-sidebar-text: #ffffff;                  /* Pure white for sidebar text */
+    --color-sidebar-title: rgba(255, 255, 255, 0.8); /* Increased opacity for better visibility */
+    
+    /* Session list item specific colors */
+    --color-session-title: #ffffff;                 /* Pure white for session titles */
+    --color-session-icon: rgba(255, 255, 255, 0.7); /* Slightly dimmed icons */
+    
+    /* Context menu text */
+    --color-context-menu-text: #ffffff;             /* Pure white for context menu text */
+    
+    /* Dark theme borders and utilities */
+    --color-border-light: #404040;
+    --color-border-medium: #505050;
+    --color-white: #2d2d2d;
+    --color-background: #1a1a1a;
+    
+    /* Dark theme buttons */
+    --color-more-button-bg: rgba(255, 255, 255, 0.1);
+    --color-more-button-text: rgba(255, 255, 255, 0.9);
+    --color-service-provider-bg: #2d2d2d;
+    --color-service-provider-text: rgba(255, 255, 255, 0.99);  /* Matching the sidebar text */
+
+    /* Arrow color */
+    --color-arrow: #ffffff; /* Arrow color for dark mode */
+
+    /* New variables for code blocks */
+    --color-background-code: rgba(255, 255, 255, 0.1);
+    --color-background-code-block: rgba(255, 255, 255, 0.05);
+}
+
+.service-select {
+    /* ... existing styles ... */
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ffffff" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    /* ... existing styles ... */
+}

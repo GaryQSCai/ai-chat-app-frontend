@@ -1,0 +1,48 @@
+# Backend
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/api/__pycache__/    
+backend/app/api/chat/__pycache__/
+backend/app/api/chat/routes/__pycache__/
+backend/app/api/chat/routes/chat_routes/__pycache__/
+backend/app/api/chat/routes/chat_routes/routes/__pycache__/
+backend/app/api/chat/routes/chat_routes/routes/chat_routes/__pycache__/
+backend/app/core/__pycache__/
+backend/app/core/config/__pycache__/
+backend/app/core/config/routes/__pycache__/
+backend/app/core/config/routes/config_routes/__pycache__/
+backend/app/core/config/routes/config_routes/routes/__pycache__/
+backend/app/core/config/routes/config_routes/routes/config_routes/__pycache__/
+backend/app/database/__pycache__/
+backend/app/database/models/__pycache__/
+backend/app/database/models/user_models/__pycache__/
+backend/app/database/models/user_models/user_models/__pycache__/
+backend/app/database/models/user_models/user_models/user_models/__pycache__/
+backend/app/database/models/user_models/user_models/user_models/user_models/__pycache__/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/build/
+frontend/.pnp
+frontend/.pnp.js
+frontend/coverage
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/package-lock.json
+
+# OS and Editors
+.venv/
+.DS_Store
+*.swp
+*.swo
+.vscode/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
