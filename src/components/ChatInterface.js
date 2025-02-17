@@ -6,7 +6,7 @@ import ThemeToggle from './ThemeToggle';
 import authService from '../services/authService';
 import { useNavigate } from 'react-router-dom';
 
-const API_BASE_URL = 'https://ai-chat-app-backend-d24c.onrender.com'; //http://localhost:8000';
+const API_BASE_URL =  'http://localhost:8000';
 
 // First, create SVG components for each service with the same paths as the CSS
 const OpenAIIcon = () => (
