@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import authService from '../services/authService';
 import './Login.css';
 
@@ -57,7 +57,7 @@ function Login() {
                     {isLoading ? 'Logging in...' : 'Login'}
                 </button>
                 <p>
-                    Don't have an account? <a href="/register">Register</a>
+                    Don't have an account? <Link to="/register">Register</Link>
                 </p>
             </form>
         </div>

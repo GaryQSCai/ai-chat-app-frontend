@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import authService from '../services/authService';
 import './Login.css'; // We can reuse the Login styles
 
@@ -67,7 +67,7 @@ function Register() {
                     {isLoading ? 'Registering...' : 'Register'}
                 </button>
                 <p>
-                    Already have an account? <a href="/login">Login</a>
+                    Already have an account? <Link to="/login">Login</Link>
                 </p>
             </form>
         </div>

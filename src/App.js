@@ -4,6 +4,7 @@ import ChatInterface from './components/ChatInterface';
 import Login from './components/Login';
 import Register from './components/Register';
 import ProtectedRoute from './components/ProtectedRoute';
+import NotFound from './components/NotFound';
 import './App.css'; // Make sure you have App.css (can be basic)
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                         }
                     />
                     <Route path="/" element={<Navigate to="/chat" />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </div>
         </Router>
